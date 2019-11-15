@@ -33,7 +33,7 @@ public class Menu {
 
     /**
      * Finds item on menu by name
-     * @param name
+     * @param name String to search for
      * @return first item on menu matching name, null if no item found
      */
     public MenuItem getMenuItemByName(String name) {
@@ -47,7 +47,7 @@ public class Menu {
 
     /**
      * Gets all MenuItems in menu with category matching category param
-     * @param category
+     * @param category String to search for
      * @return ArrayList of MenuItems with category matching param category
      */
     public ArrayList<MenuItem> getMenuItemsByCategory(String category) {
@@ -61,8 +61,22 @@ public class Menu {
     }
 
     /**
+     * Returns all new items on menu
+     * @return ArrayList of MenuItems where isNew == true
+     */
+    public ArrayList<MenuItem> getNewMenuItems() {
+        ArrayList <MenuItem> returnList = new ArrayList();
+        for(MenuItem item : menu) {
+            if(item.isNew()) {
+                returnList.add(item);
+            }
+        }
+        return returnList;
+    }
+
+    /**
      * Removes MenuItem from menu ArrayList by name field
-     * @param name
+     * @param name String of item to remove
      * @return true if item found and removed, false otherwise
      */
     public boolean removeMenuItemByName(String name) {
@@ -85,6 +99,9 @@ public class Menu {
         return lastUpdatedDate.format(formatter);
     }
 
+    /**
+     * updates lastUpdatedDate to today's date
+     */
     public void updateDate() {
         this.lastUpdatedDate = LocalDate.now();
     }
