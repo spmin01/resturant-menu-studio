@@ -28,6 +28,12 @@ public class Menu {
     }
 
     public void addMenuItem(MenuItem newItem) {
+        for(MenuItem item : this.menu) {
+            if(item.equals(newItem)) {
+                System.out.println("Item already exists in menu!");
+                return;
+            }
+        }
         this.menu.add(newItem);
         this.lastUpdatedDate = LocalDate.now();
     }

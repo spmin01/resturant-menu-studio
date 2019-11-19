@@ -9,6 +9,8 @@ public class Restaurant {
         restaurantMenu.addMenuItem(new MenuItem("Burrito", 3.99, "Main Course", "A burrito, steak probably", true));
         restaurantMenu.addMenuItem(new MenuItem("Cake", 3.99, "Dessert", "Not a lie", false));
 
+        restaurantMenu.addMenuItem(new MenuItem("Cake", 3.99, "Dessert", "Not a lie", false)); // should fail
+
 
         System.out.println(restaurantMenu);
         System.out.println(restaurantMenu.getMenuItemByName("tacos"));
